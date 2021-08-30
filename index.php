@@ -8,14 +8,13 @@ $port = "25060";
 $database = "defaultdb";
 
 
-$conn = mysqli_connect($host.':'.$port, $username, $password);
-$db=mysqli_select_db($database,$conn);
-if($db){
+$conn = mysqli_connect($host.':'.$port, $username, $password,$database);
+if($conn){
     echo "connected";
 }
 
-if ($db -> connect_errno) {
-    echo "Failed to connect to MySQL: " . $db -> connect_error;
+if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
     exit();
 }
 
